@@ -16,6 +16,10 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.nutriadm.Nutriadm.Controller"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .pathProvider(new RelativePathProvider(null) {
+                    @Override
+                    public String getApplicationBasePath() { return "/";}
+                });
     }
 }
